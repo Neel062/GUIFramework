@@ -10,9 +10,9 @@ import org.openqa.selenium.support.PageFactory;
  *This page contains Doctor_Specialization elements
  */
 
-public class Admin_Doctor_Specialization_Page {
+public class Admin1_Doctor_Specialization_Page {
 	
-	public Admin_Doctor_Specialization_Page(WebDriver driver) {
+	public Admin1_Doctor_Specialization_Page(WebDriver driver) {
 		PageFactory.initElements(driver, this);
 	}
 	
@@ -36,5 +36,14 @@ public class Admin_Doctor_Specialization_Page {
 
 	@FindBy(xpath = "//p[contains(text(),'Doctor Specialization added successfully !!')]")
 	private WebElement DoctorspecilizationConfirmMsg ;
+	
+	/**
+	 * to add doctor specialization
+	 * @param text
+	 */
+	public void addSpecialization(String text) {
+		DoctorspecilizationTxt.sendKeys(text);
+		SubmitBtn.click();
+	}
 
 }

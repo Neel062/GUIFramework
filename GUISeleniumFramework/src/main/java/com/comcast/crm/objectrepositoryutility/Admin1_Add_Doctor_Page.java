@@ -11,9 +11,9 @@ import com.comcast.crm.generic.webdriverutility.WebDriverUtility;
  *  @author Nithish
 *This page contains Add Doctor elements
 */
-public class Admin_Add_Doctor_Page extends WebDriverUtility {
+public class Admin1_Add_Doctor_Page extends WebDriverUtility {
 	
-	public Admin_Add_Doctor_Page(WebDriver driver) {
+	public Admin1_Add_Doctor_Page(WebDriver driver) {
 		PageFactory.initElements(driver, this);
 	}
 	
@@ -26,6 +26,13 @@ public class Admin_Add_Doctor_Page extends WebDriverUtility {
 	@FindBy(name = "clinicaddress")
 	private WebElement DoctorclinicadressTxt;
 	
+	@FindBy(name = "docfees")
+	private WebElement DoctorfeesTxt;
+	
+	public WebElement getDoctorfeesTxt() {
+		return DoctorfeesTxt;
+	}
+
 	@FindBy(name = "doccontact")
 	private WebElement DoctorcontactTxt;
 	
@@ -76,5 +83,27 @@ public class Admin_Add_Doctor_Page extends WebDriverUtility {
 	public void SpecializationDropdown(WebElement element,String text ) {
 		select(Doctorspecializationdropdown, text);
 		
+	}
+	/**
+	 * to add doctor
+	 * @param specialization
+	 * @param name
+	 * @param address
+	 * @param fees
+	 * @param ph_no
+	 * @param email
+	 * @param password
+	 * @param cpassword
+	 */
+	public void addDoctor(String specialization,String name,String address,String fees,String ph_no,String email,String password,String cpassword ) {
+		Doctorspecializationdropdown.sendKeys(specialization);
+		DoctoremailTxt.sendKeys(name);
+		DoctorclinicadressTxt.sendKeys(address);
+		DoctorfeesTxt.sendKeys(fees);
+		DoctorcontactTxt.sendKeys(ph_no);
+		DoctoremailTxt.sendKeys(email);
+		DoctorpwdTxt.sendKeys(password);
+		DoctorcfpwdTxt.sendKeys(cpassword);
+		DoctorSubmitBtn.click();
 	}
 }

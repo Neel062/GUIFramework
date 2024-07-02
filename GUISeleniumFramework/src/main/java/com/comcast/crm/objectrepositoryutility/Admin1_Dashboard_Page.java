@@ -1,5 +1,8 @@
 package com.comcast.crm.objectrepositoryutility;
 
+import java.util.List;
+
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -125,6 +128,17 @@ public class Admin1_Dashboard_Page extends WebDriverUtility {
 	 
 	 @FindBy(xpath ="//span[text()='B/w dates reports ']")
 		private WebElement BetweendatesreportsLink;
+	 
+	 public int gettablecount(WebDriver driver) {
+		 
+		 List<WebElement> list = driver.findElements(By.xpath("//tbody/tr"));
+		 
+		 return list.size();
+	 }
+	 
+	
+	 
+	 
 		
 	 
 }
